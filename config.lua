@@ -1,5 +1,5 @@
 -- general
-lvim.log.level = "warn"
+lvim.log.level = "warning"
 lvim.format_on_save.enabled = false
 vim.opt.showtabline = 2 -- always show tabs
 vim.opt.showmode = true
@@ -16,6 +16,7 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = {
 }
 lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 lvim.builtin.telescope.defaults.borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+-- lvim.transparent_window = false
 
 -- Lunarvim space toggle delay
 vim.opt.timeoutlen = 150
@@ -109,7 +110,8 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enable = true
+-- @INFO: If you encounter an error `query.lua:259: query: invalid node type at position 1477 for language tsx`, set this to false
+lvim.builtin.treesitter.highlight.enable = false
 lvim.line_wrap_cursor_movement = true
 -- generic LSP settings
 

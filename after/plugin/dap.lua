@@ -8,7 +8,7 @@ if (not status) then return end
 dap.adapters.php = {
     type = 'executable',
     command = 'node',
-    args = {"/Users/ben.borla/bin/php-debug-vscode/extension/out/phpDebug.js"},
+    args = {"/home/benborla/.local/bin/php-debug/extension/out/phpDebug.js"},
 }
 
 dap.configurations.php = {
@@ -18,6 +18,6 @@ dap.configurations.php = {
     name = 'Listen for XDebug',
     port = '9003',
     log = true,
-    localSourceRoot = '/Users/ben.borla/projects/herd/'
+    localSourceRoot = '/home/benborla/projects/'
   },
 }

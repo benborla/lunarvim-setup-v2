@@ -58,10 +58,11 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
-vim.opt.pumblend = 5
 vim.opt.background = 'dark'
 vim.opt.cursorline = true
 vim.opt.colorcolumn = '80,120'
+-- @INFO: Pop-up menu transparency, 0 for opaque
+vim.opt.pumblend=2
 
 vim.cmd('autocmd VimEnter * highlight LineNr guifg=#c0c0c0')
 vim.cmd('autocmd VimEnter * highlight CursorLine term=bold cterm=bold guibg=#2f4f4f')

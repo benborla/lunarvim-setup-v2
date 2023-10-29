@@ -29,3 +29,12 @@ git restore {dir}
 
 update composer.lock
 $ composer update —lock 
+
+## Troubleshooting
+If you encounter an error `query.lua:259: query: invalid node type at position 1477 for language tsx`
+
+Run the following in the editor:
+
+:echo nvim_get_runtime_file('parser', v:true)
+
+If you see more than one parser, disable the second one, or the one that is under nvim
