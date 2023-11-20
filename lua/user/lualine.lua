@@ -507,6 +507,14 @@ M.config = function()
 
   ins_right {
     function()
+      return ' {#}: ' .. "%L%*"
+    end,
+    padding = 0,
+    color = { fg = colors.red, bg = colors.bg },
+  }
+
+  ins_right {
+    function()
       local function format_file_size(file)
         local size = vim.fn.getfsize(file)
         if size <= 0 then

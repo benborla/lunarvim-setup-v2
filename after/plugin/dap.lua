@@ -8,7 +8,7 @@ if (not status) then return end
 dap.adapters.php = {
     type = 'executable',
     command = 'node',
-    args = {"/home/benborla/.local/bin/php-debug/extension/out/phpDebug.js"},
+    args = {"/Users/lucio/.local/bin/php-debug/extension/out/phpDebug.js"},
 }
 
 dap.configurations.php = {
@@ -18,6 +18,24 @@ dap.configurations.php = {
     name = 'Listen for XDebug',
     port = '9003',
     log = true,
-    localSourceRoot = '/home/benborla/projects/'
+    localSourceRoot = '/Users/lucio/projects/'
+  },
+}
+
+-- @INFO: Repeated configuration for .blade
+dap.adapters.blade = {
+    type = 'executable',
+    command = 'node',
+    args = {"/Users/lucio/.local/bin/php-debug/extension/out/phpDebug.js"},
+}
+
+dap.configurations.blade = {
+  {
+    type = 'php',
+    request = 'launch',
+    name = 'Listen for XDebug',
+    port = '9003',
+    log = true,
+    localSourceRoot = '/Users/lucio/projects/'
   },
 }

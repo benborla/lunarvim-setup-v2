@@ -43,9 +43,9 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
-vim.cmd('autocmd VimEnter * highlight DiagnosticUnderlineError gui=undercurl')
+vim.cmd('autocmd VimEnter * highlight DiagnosticUnderlineError gui=undercurl cterm=undercurl')
 
--- Turn off paste mode when leaving insert moee
+-- Turn off paste mode when leaving insert mode
 vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = '*',
   command = "set nopaste"
@@ -72,17 +72,6 @@ vim.cmd('autocmd VimEnter * highlight Visual guifg=black guibg=#8f3f71 guifg=non
 -- vim.cmd('autocmd VimEnter * highlight Comment guifg=#665c54')
 vim.cmd('autocmd VimEnter * highlight Normal guibg=#0e0b1e')
 
--- vim.cmd('autocmd VimEnter * highlight BufferLineFill guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineDevIconTs guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineDevIconJs guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineDevIconPhp guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineDevIconTsSelected guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineBackground guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineSeparator guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineDevIconPackageJson guibg=#12131d')
--- vim.cmd('autocmd VimEnter * highlight BufferLineTabSelected guibg=#222436')
--- vim.cmd('autocmd VimEnter * highlight BufferLineTab guifg=#c0c0c0')
-
 -- Startify 
 -- vim.cmd("set viminfo='100,n$HOME/.vim/files/info/viminfo")
 
@@ -101,4 +90,3 @@ vim.api.nvim_set_keymap('', ';l', '<cmd>set list! list?<cr>', {})
 --
 vim.cmd('autocmd VimEnter * highlight Normal guibg=NONE ctermbg=NONE')
 vim.cmd('autocmd VimEnter * highlight EndOfBuffer guibg=NONE ctermbg=NONE')
-vim.cmd('autocmd VimEnter * highlight DiagnosticUnderlineError gui=undercurl')

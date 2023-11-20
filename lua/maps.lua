@@ -120,3 +120,6 @@ keymap.set('n', ';wc', ':Telescope lsp_document_symbols default_text=:class:<CR>
 keymap.set('n', ';wi', ':Telescope lsp_document_symbols default_text=:interface:<CR>')
 keymap.set('n', ';p', '<CMD>Telescope projects<CR>')
 
+-- Generate DocBlock (kkoomen/vim-doge#)
+keymap.set('n', ';d', ':DogeGenerate<CR>')
+

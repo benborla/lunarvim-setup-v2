@@ -106,26 +106,17 @@ lvim.plugins = {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  { "catppuccin/nvim",          name = "catppuccin", priority = 1000 },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
+  },
   {
     'barrett-ruth/import-cost.nvim',
     build = 'sh install.sh npm',
     -- if on windows
     -- build = 'pwsh install.ps1 yarn',
     config = true
-  },
-  -- ChatGPT
-  {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup()
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
   },
   -- Add terraform
   {
@@ -147,5 +138,8 @@ lvim.plugins = {
   {
     "rrethy/vim-hexokinase",
     build = 'make hexokinase'
+  },
+  {
+    'kkoomen/vim-doge'
   }
 }
