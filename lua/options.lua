@@ -1,5 +1,16 @@
 vim.cmd('autocmd!')
 
+-- Fold Method
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.fillchars = "fold: "
+vim.wo.foldnestmax = 3
+vim.wo.foldminlines = 1
+vim.wo.foldlevel = 1
+vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+lvim.builtin.which_key.setup.plugins.presets.z = true
+-- End Fold Method
+
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
@@ -21,7 +32,6 @@ vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.expandtab = true
 vim.opt.showmatch = true
-vim.opt.cmdheight = 0
 
 vim.opt.scrolloff = 10
 vim.opt.shell = '/bin/zsh'
@@ -65,11 +75,11 @@ vim.opt.colorcolumn = '80,120'
 vim.opt.pumblend=2
 
 vim.cmd('autocmd VimEnter * highlight LineNr guifg=#c0c0c0')
-vim.cmd('autocmd VimEnter * highlight CursorLine term=bold cterm=bold guibg=#2f4f4f')
+vim.cmd('autocmd VimEnter * highlight CursorLine term=bold cterm=bold guibg=#5f00af')
 vim.cmd('autocmd VimEnter * highlight ColorColumn ctermbg=lightgrey guibg=#9d0006')
 vim.cmd('autocmd VimEnter * highlight ColorColumn ctermbg=red guibg=#af3a03')
-vim.cmd('autocmd VimEnter * highlight Visual guifg=black guibg=#8f3f71 guifg=none')
--- vim.cmd('autocmd VimEnter * highlight Comment guifg=#665c54')
+vim.cmd('autocmd VimEnter * highlight Visual guifg=black guibg=#daff24 guifg=none')
+vim.cmd('autocmd VimEnter * highlight Comment guifg=#665c54')
 vim.cmd('autocmd VimEnter * highlight Normal guibg=#0e0b1e')
 
 -- Startify 

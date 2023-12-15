@@ -141,5 +141,33 @@ lvim.plugins = {
   },
   {
     'kkoomen/vim-doge'
+  },
+  {
+    'github/copilot.vim'
+  },
+  {
+    'nelsyeung/twig.vim'
+  },
+  {
+    'dart-lang/dart-vim-plugin'
+  },
+  {
+    'natebosch/dartlang-snippets'
+  },
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
+  },
+  {
+    'nvim-telescope/telescope-ui-select.nvim'
+  },
+  {
+    'marko-cerovac/material.nvim'
   }
+  -- { "benborla/ibl.nvim", main = "ibl", opts = {} }
 }

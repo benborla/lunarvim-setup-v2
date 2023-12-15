@@ -123,3 +123,13 @@ keymap.set('n', ';p', '<CMD>Telescope projects<CR>')
 -- Generate DocBlock (kkoomen/vim-doge#)
 keymap.set('n', ';d', ':DogeGenerate<CR>')
 
+-- press K to show function doc
+keymap.set('n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>')
+
+-- Copilot
+-- ctrl+j to accept suggestion
+-- ctrl+h to go back to previous suggestion
+-- ctrl+k to go to next suggestion
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-H>", 'copilot#Previous()', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-L>", 'copilot#Next()', { silent = true, expr = true })

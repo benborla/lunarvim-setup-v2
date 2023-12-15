@@ -4,7 +4,8 @@ if (not status) then return end
 local actions = require('telescope.actions')
 
 function telescope_buffer_dir()
-  return vim.fn.expand('%:p:h') end
+  return vim.fn.expand('%:p:h')
+end
 
 function telescope_set_cwd()
   cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
@@ -19,7 +20,7 @@ end
 
 local fb_actions = require 'telescope'.extensions.file_browser.actions
 
-telescope.setup ({
+telescope.setup({
   defaults = {
     layout_strategy = "horizontal",
     path_display = { truncate = 2 },
@@ -29,10 +30,15 @@ telescope.setup ({
       }
     },
     file_ignore_patterns = {
-        "node_modules", "build", "yarn.lock", "composer.lock", "vendor"
-    },
+      "node_modules", "build", "yarn.lock", "composer.lock", "vendor"
+    }
   },
   extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+    },
     file_browser = {
       theme = 'dropdown',
       -- disables netrw add use telescope-file-browser in its place
@@ -53,36 +59,36 @@ telescope.setup ({
 })
 
 telescope.load_extension('file_browser')
-
+telescope.load_extension("ui-select")
 local opts = { noremap = true, silent = true }
 
 -- @key-map press ctrl + p to find file
 -- vim.keymap.set('n', '<C-p>', "<cmd>lua require('telescope.builtin').find_files({ no_ignore = false, hidden = true})<cr>", opts)
 vim.keymap.set('n', '<C-p>',
-  "<cmd>lua require('telescope.builtin').find_files({ no_ignore = false, hidden = true, path = '%:p:h', cwd = telescope_set_cwd() })<cr>"
+  "<cmd>lua require('telescope.builtin').find_files({ respect_git_ignore = false, no_ignore = false, hidden = true, path = '%:p:h', cwd = telescope_set_cwd() })<CR>"
   , opts)
-vim.keymap.set('n', ';v', "<cmd>lua require('telescope.builtin').search_history({ no_ignore = false, hidden = true})<cr>"
-  , opts)
+vim.keymap.set('n', ';v', "<cmd>lua require('telescope.builtin').search_history({ no_ignore = false, hidden = true})<CR>"
+, opts)
 
 -- @key-map press ;r find file that contains the regex
 vim.keymap.set('n', ';r',
-  "<cmd>lua require('telescope.builtin').live_grep({ path = '%:p:h', cwd = telescope_set_cwd() })<cr>", opts)
+  "<cmd>lua require('telescope.builtin').live_grep({ path = '%:p:h', cwd = telescope_set_cwd() })<CR>", opts)
 -- @key-map press \\ find file in the buffer
-vim.keymap.set('n', '\\\\', "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+vim.keymap.set('n', '\\\\', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
 
 -- @key-map press ;t for help tags
-vim.keymap.set('n', ';t', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+vim.keymap.set('n', ';t', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
 -- @key-map press ;; for resume function
-vim.keymap.set('n', ';;', "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
+vim.keymap.set('n', ';;', "<cmd>lua require('telescope.builtin').resume()<CR>", opts)
 -- @key-map press ;; for resume to previous action
-vim.keymap.set('n', ';e', "<cmd>lua require('telescope.builtin').diagnostics()<cr>", opts)
+vim.keymap.set('n', ';e', "<cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
 -- @key-map press ;f to open file explorer
 
 -- always search on the project dir
 vim.keymap.set('n', ';f',
-  "<cmd>lua require('telescope').extensions.file_browser.file_browser({ path = '%:p:h', cwd = telescope_buffer_dir(), no_ignore = false, respect_git_ignore = false, hidden = true, grouped = true, previewer = false, initial_mode = 'normal', layout_config = { height = 40 }})<cr>"
+  "<cmd>lua require('telescope').extensions.file_browser.file_browser({ path = '%:p:h', cwd = telescope_buffer_dir(), no_ignore = false, respect_git_ignore = false, hidden = true, grouped = true, previewer = true, initial_mode = 'normal', layout_strategy = 'flex', layout_config = { height = 0.8, width = 0.8, horizontal = { preview_cutoff = 100, preview_width = 0.5, prompt_position = 'top' }, vertical = { preview_cutoff = 40, }, flex = { flip_columns = 150, }} })<CR>"
   , opts)
---
+
 -- additional shortcuts
 -- @key-map when in file explorer: press ctrl + t to open a file in a new tab, press ctrl + x to open file in horizontal split, ctrl + v to vertical split
 -- @key-map shift + n to create a new file

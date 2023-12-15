@@ -28,8 +28,8 @@ M.config = function()
     left_mouse_command = "buffer %d",
     always_show_bufferline = true,
     show_buffer_close_icons = false,
-    show_close_icons = true,
-    colors_icons = true,
+    show_close_icons = false,
+    colors_icons = false,
     diagnostics = 'nvim_lsp',
     -- disable tab indicator
     show_buffer_icons = true,
@@ -37,8 +37,9 @@ M.config = function()
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
       for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and '⛔️ '
-            or (e == "warning" and "⚠️ " or 'ℹ ')
+        local sym = e == "error" and ' 😵'
+            or (e == "warning" and " 🥴")
+            or (e == "info" and " 😎" or ' 😏')
         s = s .. sym .. n
       end
       return s
@@ -60,7 +61,7 @@ M.config = function()
 
   lvim.builtin.bufferline.highlights = {
     separator = {
-      fg = colors.magenta,
+      fg = colors.orange,
       bg = colors.bg
     },
     separator_selected = {
@@ -74,28 +75,34 @@ M.config = function()
       bg = colors.bg
     },
     buffer_selected = {
-      fg = '#fdf6e3',
-      bg = colors.bg,
-      bold = true
+      fg = colors.bg,
+      bg = colors.orange,
+      bold = false,
+      italic = false
     },
     buffer = {
       fg = colors.fg
     },
     tab = {
       fg = colors.gray,
-      bg = colors.bg
+      bg = colors.bg,
+      italic = false
     },
     tab_selected = {
-      fg = colors.white,
-      bg = colors.magenta
+      fg = colors.bg,
+      bg = colors.orange,
+      bold = false,
+      italic = false
     },
     -- the long blank line
     fill = {
       bg = colors.bg
     },
     numbers_selected = {
-      fg = colors.magenta,
-      bg = colors.bg
+      fg = colors.bg,
+      bg = colors.orange,
+      bold = false,
+      italic = false
     },
     diagnostic = {
       fg = colors.magenta,
@@ -106,11 +113,13 @@ M.config = function()
       bg = colors.bg
     },
     diagnostic_selected = {
-      fg = colors.magenta,
-      bg = colors.bg
+      fg = colors.bg,
+      bg = colors.orange,
+      bold = false,
+      italic = false
     },
     hint = {
-      fg = colors.magenta,
+      fg = colors.blue,
       bg = colors.bg
     },
     hint_visible = {
@@ -118,20 +127,32 @@ M.config = function()
       bg = colors.bg
     },
     hint_selected = {
-      fg = colors.magenta,
-      bg = colors.bg
+      fg = colors.bg,
+      bg = colors.orange,
+      bold = false,
+      italic = false
+
     },
     hint_diagnostic = {
       fg = colors.magenta,
-      bg = colors.bg
+      bg = colors.bg,
+      bold = false,
+      italic = false
+
     },
     hint_diagnostic_visible = {
       fg = colors.magenta,
-      bg = colors.bg
+      bg = colors.bg,
+      bold = false,
+      italic = false
+
     },
     hint_diagnostic_selected = {
-      fg = colors.magenta,
-      bg = colors.bg
+      fg = colors.bg,
+      bg = colors.orange,
+      bold = false,
+      italic = false
+
     },
     info = {
       fg = colors.cyan,
@@ -143,7 +164,10 @@ M.config = function()
     },
     info_selected = {
       fg = colors.cyan,
-      bg = colors.bg
+      bg = colors.orange,
+      bold = false,
+      italic = false
+
     },
     info_diagnostic = {
       fg = colors.cyan,
@@ -155,7 +179,10 @@ M.config = function()
     },
     info_diagnostic_selected = {
       fg = colors.cyan,
-      bg = colors.bg
+      bg = colors.orange,
+      bold = false,
+      italic = false
+
     },
     warning = {
       fg = colors.yellow,
@@ -167,7 +194,7 @@ M.config = function()
     },
     warning_selected = {
       fg = colors.yellow,
-      bg = colors.bg
+      bg = colors.orange
     },
     warning_diagnostic = {
       fg = colors.yellow,
@@ -179,7 +206,9 @@ M.config = function()
     },
     warning_diagnostic_selected = {
       fg = colors.yellow,
-      bg = colors.bg
+      bg = colors.orange,
+      bold = false,
+      italic = false
     },
     error = {
       fg = colors.red,
@@ -190,8 +219,10 @@ M.config = function()
       bg = colors.bg
     },
     error_selected = {
-      fg = colors.red,
-      bg = colors.bg
+      fg = colors.bg,
+      bg = colors.orange,
+      bold = false,
+      italic = false
     },
     error_diagnostic = {
       fg = colors.red,
@@ -203,21 +234,23 @@ M.config = function()
     },
     error_diagnostic_selected = {
       fg = colors.red,
-      bg = colors.bg,
-      bold = true,
+      bg = colors.orange,
+      bold = false,
       italic = false,
     },
     modified = {
-      fg = colors.blue,
+      fg = colors.white,
       bg = colors.bg,
     },
     modified_visible = {
-      fg = colors.blue,
+      fg = colors.white,
       bg = colors.bg
     },
     modified_selected = {
-      fg = colors.blue,
-      bg = colors.bg
+      fg = colors.white,
+      bg = colors.orange,
+      bold = false,
+      italic = false
     },
 
   }
