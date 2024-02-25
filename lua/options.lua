@@ -7,7 +7,8 @@ vim.wo.fillchars = "fold: "
 vim.wo.foldnestmax = 3
 vim.wo.foldminlines = 1
 vim.wo.foldlevel = 1
-vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+vim.wo.foldtext =
+[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 lvim.builtin.which_key.setup.plugins.presets.z = true
 -- End Fold Method
 
@@ -43,9 +44,9 @@ vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.ai = true -- Auto indent
-vim.opt.si = true -- Smart indent
-vim.opt.wrap = true -- no wrap lines
+vim.opt.ai = true            -- Auto indent
+vim.opt.si = true            -- Smart indent
+vim.opt.wrap = true          -- no wrap lines
 vim.opt.backspace = 'start,eol,indent'
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
@@ -72,17 +73,10 @@ vim.opt.background = 'dark'
 vim.opt.cursorline = true
 vim.opt.colorcolumn = '80,120'
 -- @INFO: Pop-up menu transparency, 0 for opaque
-vim.opt.pumblend=2
+vim.opt.pumblend = 2
 
-vim.cmd('autocmd VimEnter * highlight LineNr guifg=#c0c0c0')
-vim.cmd('autocmd VimEnter * highlight CursorLine term=bold cterm=bold guibg=#5f00af')
-vim.cmd('autocmd VimEnter * highlight ColorColumn ctermbg=lightgrey guibg=#9d0006')
-vim.cmd('autocmd VimEnter * highlight ColorColumn ctermbg=red guibg=#af3a03')
-vim.cmd('autocmd VimEnter * highlight Visual guifg=black guibg=#daff24 guifg=none')
-vim.cmd('autocmd VimEnter * highlight Comment guifg=#665c54')
-vim.cmd('autocmd VimEnter * highlight Normal guibg=#0e0b1e')
 
--- Startify 
+-- Startify
 -- vim.cmd("set viminfo='100,n$HOME/.vim/files/info/viminfo")
 
 vim.opt.clipboard:append { 'unnamedplus' }
@@ -98,5 +92,16 @@ vim.api.nvim_set_keymap('', ';l', '<cmd>set list! list?<cr>', {})
 --
 -- SET BACKGROUND TO TRANSPARENT
 --
-vim.cmd('autocmd VimEnter * highlight Normal guibg=NONE ctermbg=NONE')
-vim.cmd('autocmd VimEnter * highlight EndOfBuffer guibg=NONE ctermbg=NONE')
+vim.cmd('highlight Normal guibg=NONE ctermbg=NONE')
+vim.cmd('highlight EndOfBuffer guibg=NONE ctermbg=NONE')
+
+-- Delay execution 2 seconds
+vim.defer_fn(function()
+  vim.cmd('highlight LineNr guifg=#ffffff')
+  vim.cmd('highlight CursorLineNr guifg=#daff24')
+  vim.cmd('highlight CursorLine term=bold cterm=bold guibg=#5f00af')
+  vim.cmd('highlight ColorColumn ctermbg=lightgrey guibg=#9d0006')
+  vim.cmd('highlight ColorColumn ctermbg=red guibg=#af3a03')
+  vim.cmd('highlight Comment guifg=#98fb98')
+  vim.cmd('highlight Visual guifg=black guibg=#daff24')
+end, 2000)

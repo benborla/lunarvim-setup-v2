@@ -30,15 +30,10 @@ telescope.setup({
       }
     },
     file_ignore_patterns = {
-      "node_modules", "build", "yarn.lock", "composer.lock", "vendor"
+      "node_modules", "build", "yarn.lock", "composer.lock", "vendor", "package-lock.json"
     }
   },
   extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-        -- even more opts
-      }
-    },
     file_browser = {
       theme = 'dropdown',
       -- disables netrw add use telescope-file-browser in its place
@@ -59,7 +54,6 @@ telescope.setup({
 })
 
 telescope.load_extension('file_browser')
-telescope.load_extension("ui-select")
 local opts = { noremap = true, silent = true }
 
 -- @key-map press ctrl + p to find file
