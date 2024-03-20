@@ -80,6 +80,7 @@ keymap.set('n', '<Space>ff', ':vsplit | lua vim.lsp.buf.definition()<Return>')
 
 keymap.set('v', '<', '<gv')
 keymap.set('v', '>', '>gv')
+keymap.set('v', 'yy', 'vg_')
 
 
 -- show current file full path
@@ -133,3 +134,24 @@ keymap.set('n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>')
 vim.api.nvim_set_keymap("i", "<C-L>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 vim.api.nvim_set_keymap("i", "<C-[>", 'copilot#Previous()', { silent = true, expr = true })
 vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Next()', { silent = true, expr = true })
+
+-- toggle spelling
+lvim.keys.normal_mode[";s"] = ":setlocal spell! spelllang=en_us<CR>"
+
+keymap.set('n', 'sdvw', '<cmd>lua require("neotest").run.run({ vitestCommand = "vitest --watch" })<cr>')
+
+keymap.set('n', ';vt', '<cmd>lua require("neotest").summary.toggle()<cr>')
+
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<leader>dvw",
+--   "<cmd>lua require('neotest').run.run({ vitestCommand = 'vitest --watch' })<cr>",
+--   { desc = "Run Watch" }
+-- )
+
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<leader>dvwf",
+--    "<cmd>lua require('neotest').run.run({ tonumber(vim.fn.expand("%")), vitestCommand = 'vitest --watch' })<cr>",
+--   { desc = "Run Watch File" }
+-- )

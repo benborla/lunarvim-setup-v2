@@ -6,9 +6,9 @@ if (not status) then return end
 -- (Optional) run `npm install` inside extensions directory
 -- then look for phpDebug.js
 dap.adapters.php = {
-    type = 'executable',
-    command = 'node',
-    args = {"/Users/lucio/.local/bin/php-debug/extension/out/phpDebug.js"},
+  type = 'executable',
+  command = 'node',
+  args = { "/Users/lucio/.local/bin/php-debug/extension/out/phpDebug.js" },
 }
 
 dap.configurations.php = {
@@ -24,9 +24,9 @@ dap.configurations.php = {
 
 -- @INFO: Repeated configuration for .blade
 dap.adapters.blade = {
-    type = 'executable',
-    command = 'node',
-    args = {"/Users/lucio/.local/bin/php-debug/extension/out/phpDebug.js"},
+  type = 'executable',
+  command = 'node',
+  args = { "/Users/lucio/.local/bin/php-debug/extension/out/phpDebug.js" },
 }
 
 dap.configurations.blade = {
