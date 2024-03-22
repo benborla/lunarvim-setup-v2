@@ -18,7 +18,7 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = {
 }
 lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 lvim.builtin.telescope.defaults.borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
-lvim.transparent_window = false
+lvim.transparent_window = true
 
 -- Copilot
 vim.g.copilot_no_tab_map = true

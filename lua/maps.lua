@@ -155,3 +155,11 @@ keymap.set('n', ';vt', '<cmd>lua require("neotest").summary.toggle()<cr>')
 --    "<cmd>lua require('neotest').run.run({ tonumber(vim.fn.expand("%")), vitestCommand = 'vitest --watch' })<cr>",
 --   { desc = "Run Watch File" }
 -- )
+--
+-- Disable mouse scrolling in all modes
+vim.api.nvim_set_keymap("n", "<ScrollWheelUp>", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<ScrollWheelDown>", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<ScrollWheelUp>", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<ScrollWheelDown>", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<ScrollWheelUp>", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<ScrollWheelDown>", "<nop>", { noremap = true, silent = true })
