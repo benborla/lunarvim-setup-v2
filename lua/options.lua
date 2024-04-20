@@ -76,15 +76,9 @@ vim.opt.colorcolumn = '80,120'
 vim.opt.pumblend = 2
 
 
--- Startify
--- vim.cmd("set viminfo='100,n$HOME/.vim/files/info/viminfo")
-
 vim.opt.clipboard:append { 'unnamedplus' }
 
 -- Show space as character
-vim.opt.list = false
--- vim.cmd('autocmd VimEnter * set list')
--- vim.cmd('autocmd VimEnter * set lcs+=space:·')
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
 vim.api.nvim_set_keymap('', ';l', '<cmd>set list! list?<cr>', {})
@@ -102,7 +96,7 @@ vim.defer_fn(function()
   vim.cmd('highlight CursorLine term=bold cterm=bold guibg=#5f00af')
   vim.cmd('highlight ColorColumn ctermbg=lightgrey guibg=#9d0006')
   vim.cmd('highlight ColorColumn ctermbg=red guibg=#af3a03')
-  vim.cmd('highlight Comment guifg=#0f7a0f')
+  vim.cmd('highlight Comment guifg=#98971a')
   vim.cmd('highlight Variable guifg=#ECBE7B')
-  vim.cmd('highlight Visual guifg=black guibg=#daff24')
+  vim.cmd('highlight Visual guifg=black guibg=#d79921')
 end, 2000)
