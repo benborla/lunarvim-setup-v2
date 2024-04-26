@@ -163,3 +163,10 @@ vim.api.nvim_set_keymap("i", "<ScrollWheelUp>", "<nop>", { noremap = true, silen
 vim.api.nvim_set_keymap("i", "<ScrollWheelDown>", "<nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<ScrollWheelUp>", "<nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<ScrollWheelDown>", "<nop>", { noremap = true, silent = true })
+
+
+-- Vim Tmux bindings
+-- vim.api.nvim_set_keymap("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<c-j>", "<cmd>TmuxNavigateRight<cr>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<c-l>", "<cmd>TmuxNavigateDown<cr>", { noremap = true, silent = true })

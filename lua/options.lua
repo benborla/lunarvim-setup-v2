@@ -19,8 +19,6 @@ vim.opt.fileencoding = 'utf-8'
 vim.cmd "set noshowcmd"
 vim.cmd "set noshowmode"
 
-vim.cmd "hi BufferLineFill guibg=#000000"
-
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.opt.title = true
@@ -76,27 +74,29 @@ vim.opt.colorcolumn = '80,120'
 vim.opt.pumblend = 2
 
 
-vim.opt.clipboard:append { 'unnamedplus' }
+vim.opt.clipboard:append { 'unnamed' }
 
 -- Show space as character
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
 vim.api.nvim_set_keymap('', ';l', '<cmd>set list! list?<cr>', {})
 
---
 -- SET BACKGROUND TO TRANSPARENT
---
 vim.cmd('highlight Normal guibg=NONE ctermbg=NONE')
 vim.cmd('highlight EndOfBuffer guibg=NONE ctermbg=NONE')
 
 -- Delay execution 2 seconds
 vim.defer_fn(function()
-  vim.cmd('highlight LineNr guifg=#ffffff')
+  vim.cmd('highlight LineNr guifg=#ffffff guibg=none')
   vim.cmd('highlight CursorLineNr guifg=#daff24')
-  vim.cmd('highlight CursorLine term=bold cterm=bold guibg=#5f00af')
+  vim.cmd('highlight CursorLine term=bold cterm=bold')
   vim.cmd('highlight ColorColumn ctermbg=lightgrey guibg=#9d0006')
   vim.cmd('highlight ColorColumn ctermbg=red guibg=#af3a03')
   vim.cmd('highlight Comment guifg=#98971a')
   vim.cmd('highlight Variable guifg=#ECBE7B')
   vim.cmd('highlight Visual guifg=black guibg=#d79921')
-end, 2000)
+  vim.cmd "hi BufferLineFill guibg=#000000"
+end, 500)
+
+vim.cmd('let g:tmux_navigator_no_mappings = 1')
+

@@ -543,9 +543,9 @@ end
 M.toggle_theme = function()
   local theme = lvim.colorscheme
   local colorset = require("user.theme").colors.tokyonight_colors
-  if theme == "tokyonight" then
-    lvim.colorscheme = "catppuccin-mocha"
-    colorset = require("user.theme").colors.catppuccin_colors
+  if theme == "kanagawa" then
+    lvim.colorscheme = "kanagawa"
+    colorset = require("user.theme").colors.kanagawa_colors
   else
     lvim.colorscheme = "tokyonight"
   end

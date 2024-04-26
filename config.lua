@@ -24,8 +24,8 @@ lvim.transparent_window = true
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 
--- Lunarvim space toggle delay
 vim.opt.timeoutlen = 150
+-- Lunarvim space toggle delay
 
 -- disable project plugin
 lvim.builtin.project.active = true
@@ -33,21 +33,19 @@ lvim.builtin.project.active = true
 -- enable/disable NerdTree Plugin
 lvim.builtin.nvimtree.active = true
 
-lvim.colorscheme = "material"
-vim.g.material_style = "deep ocean"
+lvim.colorscheme = "kanagawa"
 vim.o.background = "dark"
--- vim.g.tokyonight_style = "night"
 
 -- BUFFERLINE CONFIG
 -- lvim.builtin.bufferline.options.mode = "tabs"
--- lvim.builtin.lualine.options.theme = 'tokyonight'
+lvim.builtin.lualine.options.theme = 'gruvbox_dark'
 
 lvim.builtin.bufferline.active = true
 -- Configuration for Status line
 require("user.lualine").config()
 -- Configuration for Tab line
 require('user.bufferline_2').config()
--- require("user.dashboard").config()
+require("user.dashboard").config()
 
 
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -103,22 +101,20 @@ lvim.builtin.telescope.pickers.colorscheme = { layout_strategy = "cursor", layou
 -- end TELESCOPE PREVIEW DISPLAY fix
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
-  "yaml",
-  "php"
+  -- "javascript",
+  -- "json",
+  -- "lua",
+  -- "python",
+  -- "typescript",
+  -- "tsx",
+  -- "css",
+  -- "rust",
+  -- "yaml",
+  -- "php",
+  -- "vue"
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.ignore_install = { "haskell", "c", "bash" }
 -- @INFO: If you encounter an error `query.lua:259: query: invalid node type at position 1477 for language tsx`, set this to false
 lvim.builtin.treesitter.highlight.enable = false
 lvim.line_wrap_cursor_movement = true
